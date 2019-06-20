@@ -1,0 +1,68 @@
+.btn {
+  &:link,
+  &:visited {
+    /* pseudo class, state of the element is an ankor */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block; /* is treated like text -> text-alright on parent center works */
+    border-radius: 100px;
+    transition: all 0.2s; /* all -> animate all properties. In the initial state */
+    position: relative;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba($color-black, 0.2); /* x offset, y offset, blur, color */
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba($color-black, 0.2); /* x offset, y offset, blur, color */
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+    backface-visibility: hidden;
+  }
+
+  &--white::after {
+    background-color: $color-white;
+  }
+
+  @keyframes moveInButton {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+  &--animated {
+    animation: moveInButton 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /* start with opacity 0 */
+  }
+}
