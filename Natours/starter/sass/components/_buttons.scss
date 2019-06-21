@@ -5,7 +5,7 @@
     text-transform: uppercase;
     text-decoration: none;
     padding: 15px 40px;
-    display: inline-block; /* is treated like text -> text-alright on parent center works */
+    display: inline-block; /* is treated like text -> text-right on parent center works */
     border-radius: 100px;
     transition: all 0.2s; /* all -> animate all properties. In the initial state */
     position: relative;

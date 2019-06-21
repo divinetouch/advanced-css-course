@@ -11,7 +11,7 @@ body {
   color: $color-white;
   text-transform: uppercase;
 
-  backface-visibility: hidden; /*avoid shacking to the top, the the back is h*/
+  backface-visibility: hidden; /*avoid shacking to the top, the the back is hidden*/
   margin-bottom: 60px;
 
   &--main {

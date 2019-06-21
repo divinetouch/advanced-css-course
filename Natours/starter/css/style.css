@@ -3,64 +3,13 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
 
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #777;
-  padding: 30px; }
-
-.header {
-  height: 95vh;
-  /*95 percent of the view port heigth*/
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  /*what ever the width of the view port -> fit the width*/
-  background-position: top;
-  /* top of the image always fixed to the top */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /*using vh -> update dynamically*/
-  position: relative; }
-  .header__logo-box {
-    position: absolute;
-    /*parent is relative*/
-    top: 40px;
-    left: 40px; }
-  .header__logo {
-    height: 35px;
-    /* always prefer to control the height of the image*/ }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /*avoid shacking to the top, the the back is h*/
-  margin-bottom: 60px; }
-  .heading-primary--main {
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
-    animation: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    /* animation-delay: 0.5s; */
-    /* animation-iteration-count: 3; */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
-    animation: moveInRight 1s ease-in-out; }
+  box-sizing: border-box; }
 
 @keyframes moveInLeft {
   0% {
@@ -82,13 +31,44 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /*avoid shacking to the top, the the back is hidden*/
+  margin-bottom: 60px; }
+  .heading-primary--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    /* animation-delay: 0.5s; */
+    /* animation-iteration-count: 3; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    animation: moveInRight 1s ease-in-out; }
+
 .btn:link, .btn:visited {
   /* pseudo class, state of the element is an ankor */
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 40px;
   display: inline-block;
-  /* is treated like text -> text-alright on parent center works */
+  /* is treated like text -> text-right on parent center works */
   border-radius: 100px;
   transition: all 0.2s;
   /* all -> animate all properties. In the initial state */
@@ -139,3 +119,57 @@ body {
   animation: moveInButton 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
   /* start with opacity 0 */ }
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
+
+.header {
+  height: 95vh;
+  /*95 percent of the view port heigth*/
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /*what ever the width of the view port -> fit the width*/
+  background-position: top;
+  /* top of the image always fixed to the top */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /*using vh -> update dynamically*/
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    /*parent is relative*/
+    top: 40px;
+    left: 40px; }
+  .header__logo {
+    height: 35px;
+    /* always prefer to control the height of the image*/ }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
