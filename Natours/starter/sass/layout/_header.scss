@@ -5,8 +5,11 @@
   background-size: cover; /*what ever the width of the view port -> fit the width*/
   background-position: top; /* top of the image always fixed to the top */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*using vh -> update dynamically*/
-
   position: relative;
+
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); /*using vh -> update dynamically*/
+  }
 
   &__logo-box {
     position: absolute; /*parent is relative*/

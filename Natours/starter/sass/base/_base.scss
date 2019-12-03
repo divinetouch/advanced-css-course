@@ -8,10 +8,27 @@
 
 html {
   // This defines what 1rem is
-  // 1 rem is 16px -> to make 1 rem = 10px we need to divide 10/16 and multiply by 100 to make it simple
+  // to make 1 rem = 10px we need to divide 10/16 and multiply by 100 to make it simple
   font-size: 62.5%;
+
+  // <= 1200?
+  @include respond(tab-land) {
+    font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+  }
+  // <= 900?
+  @include respond(tab-port) {
+    font-size: 50%; //1rem = 8px, 8/16 = 50%
+  }
+  // >= 1200?
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12px = 12/16 = 75%
+  }
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }
